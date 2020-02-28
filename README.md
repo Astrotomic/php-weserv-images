@@ -1,11 +1,14 @@
-# Very short description of the package
+# PHP images.weserv.nl
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/astrotomic/php-weserv-images.svg?style=flat-square)](https://packagist.org/packages/astrotomic/php-weserv-images)
-[![Build Status](https://img.shields.io/travis/astrotomic/php-weserv-images/master.svg?style=flat-square)](https://travis-ci.org/astrotomic/php-weserv-images)
-[![Quality Score](https://img.shields.io/scrutinizer/g/astrotomic/php-weserv-images.svg?style=flat-square)](https://scrutinizer-ci.com/g/astrotomic/php-weserv-images)
-[![Total Downloads](https://img.shields.io/packagist/dt/astrotomic/php-weserv-images.svg?style=flat-square)](https://packagist.org/packages/astrotomic/php-weserv-images)
+[![Latest Version](http://img.shields.io/packagist/v/astrotomic/php-weserv-images.svg?label=Release&style=for-the-badge)](https://packagist.org/packages/astrotomic/php-weserv-images)
+[![MIT License](https://img.shields.io/github/license/Astrotomic/php-weserv-images.svg?label=License&color=blue&style=for-the-badge)](https://github.com/Astrotomic/php-weserv-images/blob/master/LICENSE)
+[![Offset Earth](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-green?style=for-the-badge)](https://offset.earth/treeware)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Astrotomic/php-weserv-images/run-tests?style=flat-square&logoColor=white&logo=github&label=Tests)](https://github.com/Astrotomic/php-weserv-images/actions?query=workflow%3Arun-tests)
+[![StyleCI](https://styleci.io/repos/243765043/shield)](https://styleci.io/repos/243765043)
+[![Total Downloads](https://img.shields.io/packagist/dt/astrotomic/php-weserv-images.svg?label=Downloads&style=flat-square)](https://packagist.org/packages/astrotomic/php-weserv-images)
+
+This package provides a fluent PHP OOP builder for [images.weserv.nl](https://images.weserv.nl).
 
 ## Installation
 
@@ -41,13 +44,9 @@ If you discover any security related issues, please email gummibeer@astrotomic.i
 
 ## Credits
 
-- [Tom Witkowski](https://github.com/astrotomic)
+- [Tom Witkowski](https://github.com/Gummibeer)
 - [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com).
