@@ -20,9 +20,18 @@ composer require astrotomic/php-weserv-images
 
 ## Usage
 
-``` php
-// Usage description here
+```php
+use Astrotomic\Weserv\Images\Url;
+use Astrotomic\Weserv\Images\Enums\Fit;
+
+$url = new Url('https://images.weserv.nl/lichtenstein.jpg');
+$url->w(512)->h(512)->we()->fit(Fit::INSIDE);
+
+echo $url;
+// https://images.weserv.nl/?w=512&h=512&we=1&fit=inside&url=https%3A%2F%2Fimages.weserv.nl%2Flichtenstein.jpg
 ```
+
+![](https://images.weserv.nl/?w=512&h=512&we=1&fit=inside&url=https%3A%2F%2Fimages.weserv.nl%2Flichtenstein.jpg)
 
 ### Testing
 
