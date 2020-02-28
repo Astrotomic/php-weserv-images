@@ -13,6 +13,6 @@ final class UrlTest extends TestCase
         $url = new Url('https://example.com/image.jpg');
 
         static::assertInstanceOf(Url::class, $url);
-        static::assertSame('https://images.weserv.nl?url=https%3A%2F%2Fexample.com%2Fimage.jpg', (string)$url);
+        static::assertSame('https://images.weserv.nl?url=https%3A%2F%2Fexample.com%2Fimage.jpg', (string) $url);
     }
 }

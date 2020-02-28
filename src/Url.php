@@ -297,13 +297,12 @@ class Url
         string $filter,
         ?string $startColor = null,
         ?string $stopColor = null
-    ): self
-    {
+    ): self {
         return $this
             ->set('filt', $filter)
             ->when(
                 $filter === Filter::DUOTONE,
-                function (Url $url) use ($startColor, $stopColor): void {
+                function (self $url) use ($startColor, $stopColor): void {
                     $url
                         ->set('start', $startColor)
                         ->set('stop', $stopColor);
