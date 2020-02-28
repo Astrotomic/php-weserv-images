@@ -50,3 +50,15 @@ If you discover any security related issues, please email dev@astrotomic.info in
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Treeware
+
+You're free to use this package, but if it makes it to your production environment I would highly appreciate you buying the world a tree.
+
+It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to [plant trees](https://www.bbc.co.uk/news/science-environment-48870920). If you contribute to my forest you’ll be creating employment for local families and restoring wildlife habitats.
+
+You can buy trees at https://offset.earth/treeware
+
+Read more about Treeware at https://treeware.earth
+
+[![We offset our carbon footprint via Offset Earth](https://toolkit.offset.earth/carbonpositiveworkforce/badge/5e186e68516eb60018c5172b?black=true&landscape=true)](https://offset.earth/treeware)
