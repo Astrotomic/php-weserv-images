@@ -1,0 +1,45 @@
+{
+    "name": "astrotomic/php-weserv-images",
+    "description": "A fluent URL generator for images.weserv.nl",
+    "keywords": [
+        "astrotomic",
+        "php-weserv-images",
+        "weserv",
+        "images"
+    ],
+    "homepage": "https://github.com/astrotomic/php-weserv-images",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "gummibeer@astrotomic.info",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Astrotomic\\Weserv\\Images\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Astrotomic\\Weserv\\Images\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
