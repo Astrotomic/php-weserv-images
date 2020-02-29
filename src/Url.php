@@ -24,11 +24,7 @@ class Url
 
     public function __toString(): string
     {
-        $query = http_build_query(array_merge($this->options, [
-            'url' => $this->imageUrl,
-        ]));
-
-        return $this->baseUrl.'?'.$query;
+        return $this->toUrl();
     }
 
     /**
@@ -505,6 +501,32 @@ class Url
         }
 
         return $this;
+    }
+
+    public function toUrl(): string
+    {
+        $query = http_build_query(array_merge($this->options, [
+            'url' => $this->imageUrl,
+        ]));
+
+        return $this->baseUrl . '?' . $query;
+    }
+
+    public function toImg(array $attr = []): string
+    {
+        $attr['src'] = $this->toUrl();
+
+        return sprintf(
+            '<img %s />',
+            implode(
+                ' ',
+                array_map(
+                    fn($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
+                    array_keys($attr),
+                    $attr
+                )
+            )
+        );
     }
 
     protected function set(string $key, $value): self
