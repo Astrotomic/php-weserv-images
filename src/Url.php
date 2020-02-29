@@ -509,7 +509,7 @@ class Url
             'url' => $this->imageUrl,
         ]));
 
-        return $this->baseUrl . '?' . $query;
+        return $this->baseUrl.'?'.$query;
     }
 
     public function toImg(array $attr = []): string
@@ -521,7 +521,7 @@ class Url
             implode(
                 ' ',
                 array_map(
-                    fn($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
+                    fn ($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
                     array_keys($attr),
                     $attr
                 )
