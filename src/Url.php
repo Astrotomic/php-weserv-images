@@ -512,21 +512,19 @@ class Url
         return $this->baseUrl.'?'.$query;
     }
 
-    public function toImg(array $attr = []): string
+    public function toImg(array $attr = [], array $srcSet = []): string
     {
         $attr['src'] = $this->toUrl();
 
-        return sprintf(
-            '<img %s />',
-            implode(
-                ' ',
-                array_map(
-                    fn ($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
-                    array_keys($attr),
-                    $attr
-                )
-            )
-        );
+        if (! empty($srcSet)) {
+            $attr['srcset'] = $this->getSrcSet($srcSet);
+        }
+
+        $attributes = $this->getAttributes($attr);
+
+        return <<<HTML
+            <img {$attributes} />
+            HTML;
     }
 
     protected function set(string $key, $value): self
@@ -534,5 +532,25 @@ class Url
         $this->options[$key] = $value;
 
         return $this;
+    }
+
+    protected function getSrcSet(array $srcSet): string
+    {
+        return implode(', ', array_map(
+            fn (Closure $callback, string $size) => $callback(clone $this).' '.$size,
+            $srcSet, array_keys($srcSet)
+        ));
+    }
+
+    protected function getAttributes(array $attr): string
+    {
+        return implode(
+            ' ',
+            array_map(
+                fn ($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
+                array_keys($attr),
+                $attr
+            )
+        );
     }
 }
