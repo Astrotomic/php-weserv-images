@@ -547,7 +547,7 @@ class Url
         return implode(
             ' ',
             array_map(
-                fn ($k, $v) => sprintf('%s="%s"', $k, htmlspecialchars($v)),
+                fn ($k, $v) => sprintf('%s="%s"', $k, $v),
                 array_keys($attr),
                 $attr
             )

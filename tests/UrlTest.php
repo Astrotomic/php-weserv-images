@@ -35,4 +35,13 @@ final class UrlTest extends TestCase
         static::assertInstanceOf(Url::class, $url);
         static::assertSame('https://images.weserv.nl?w=1920&h=1080&fit=contain&we=1&url=https%3A%2F%2Fexample.com%2Fimage.jpg', (string) $url);
     }
+
+    /** @test */
+    public function it_can_transform_to_img_tag(): void
+    {
+        $url = new Url('https://example.com/image.jpg');
+
+        static::assertInstanceOf(Url::class, $url);
+        static::assertSame('<img src="https://images.weserv.nl?url=https%3A%2F%2Fexample.com%2Fimage.jpg" />', $url->toImg());
+    }
 }
