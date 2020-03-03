@@ -2,6 +2,10 @@
 
 All notable changes to `php-weserv-images` will be documented in this file
 
+## 0.4.0
+
+- add `toPicture()` method
+
 ## 0.3.0 - 2020-03-02
 
 - add `srcset` support to `toImg()` method
