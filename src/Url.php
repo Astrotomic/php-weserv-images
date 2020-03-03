@@ -3,6 +3,7 @@
 namespace Astrotomic\Weserv\Images;
 
 use Astrotomic\Weserv\Images\Enums\Filter;
+use Astrotomic\Weserv\Images\Enums\Output;
 use Closure;
 
 /**
@@ -524,6 +525,28 @@ class Url
 
         return <<<HTML
             <img {$attributes} />
+            HTML;
+    }
+
+    public function toPicture(array $attr = [], array $srcSet = []): string
+    {
+        $attr['src'] = $this->toUrl();
+        if (! empty($srcSet)) {
+            $attr['srcset'] = $this->getSrcSet($srcSet);
+        }
+        $attributes = $this->getAttributes($attr);
+
+        $webpAttr['type'] = 'image/webp';
+        if (! empty($srcSet)) {
+            $webpAttr['srcset'] = (clone $this)->output(Output::WEBP)->getSrcSet($srcSet);
+        }
+        $webpAttributes = $this->getAttributes($webpAttr);
+
+        return <<<HTML
+            <picture>
+                <source {$webpAttributes} />
+                <img {$attributes} />
+            </picture>
             HTML;
     }
 

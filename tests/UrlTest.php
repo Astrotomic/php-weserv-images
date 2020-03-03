@@ -44,4 +44,27 @@ final class UrlTest extends TestCase
         static::assertInstanceOf(Url::class, $url);
         static::assertSame('<img src="https://images.weserv.nl?url=https%3A%2F%2Fexample.com%2Fimage.jpg" />', $url->toImg());
     }
+
+    /** @test */
+    public function it_can_transform_to_picture_tag(): void
+    {
+        $url = new Url('https://example.com/image.jpg');
+
+        static::assertInstanceOf(Url::class, $url);
+        static::assertSame(
+            <<<'HTML'
+            <picture>
+                <source type="image/webp" srcset="https://images.weserv.nl?output=webp&dpr=1&url=https%3A%2F%2Fexample.com%2Fimage.jpg 1x, https://images.weserv.nl?output=webp&dpr=2&url=https%3A%2F%2Fexample.com%2Fimage.jpg 2x" />
+                <img alt="My cool avatar" class="avatar" src="https://images.weserv.nl?url=https%3A%2F%2Fexample.com%2Fimage.jpg" srcset="https://images.weserv.nl?dpr=1&url=https%3A%2F%2Fexample.com%2Fimage.jpg 1x, https://images.weserv.nl?dpr=2&url=https%3A%2F%2Fexample.com%2Fimage.jpg 2x" />
+            </picture>
+            HTML,
+            $url->toPicture([
+                'alt' => 'My cool avatar',
+                'class' => 'avatar',
+            ], [
+                '1x' => fn (Url $url) => $url->dpr(1),
+                '2x' => fn (Url $url) => $url->dpr(2),
+            ])
+        );
+    }
 }
