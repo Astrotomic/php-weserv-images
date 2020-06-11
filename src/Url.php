@@ -2,6 +2,7 @@
 
 namespace Astrotomic\Weserv\Images;
 
+use Astrotomic\ConditionalProxy\HasConditionalCalls;
 use Astrotomic\Weserv\Images\Enums\Filter;
 use Astrotomic\Weserv\Images\Enums\Output;
 use Closure;
@@ -11,6 +12,8 @@ use Closure;
  */
 class Url
 {
+    use HasConditionalCalls;
+
     protected const BASE_URL = 'https://images.weserv.nl';
 
     protected string $imageUrl;
@@ -493,15 +496,6 @@ class Url
     public function q(int $quality): self
     {
         return $this->set('q', $quality);
-    }
-
-    public function when(bool $condition, Closure $callback): self
-    {
-        if ($condition) {
-            $callback($this);
-        }
-
-        return $this;
     }
 
     public function toUrl(): string

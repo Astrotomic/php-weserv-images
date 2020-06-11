@@ -67,4 +67,18 @@ final class UrlTest extends TestCase
             ])
         );
     }
+
+    /** @test */
+    public function it_can_call_methods_conditionally(): void
+    {
+        $url = new Url('https://example.com/image.jpg');
+        $url
+            ->w(1920)
+            ->when(true)->h(1080)
+            ->when(true, fn(Url $u) => $u->fit(Fit::CONTAIN))
+            ->when(false)->we();
+
+        static::assertInstanceOf(Url::class, $url);
+        static::assertSame('https://images.weserv.nl?w=1920&h=1080&fit=contain&url=https%3A%2F%2Fexample.com%2Fimage.jpg', (string) $url);
+    }
 }
