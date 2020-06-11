@@ -75,7 +75,7 @@ final class UrlTest extends TestCase
         $url
             ->w(1920)
             ->when(true)->h(1080)
-            ->when(true, fn(Url $u) => $u->fit(Fit::CONTAIN))
+            ->when(true, fn (Url $u) => $u->fit(Fit::CONTAIN))
             ->when(false)->we();
 
         static::assertInstanceOf(Url::class, $url);
