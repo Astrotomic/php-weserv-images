@@ -2,6 +2,10 @@
 
 All notable changes to `php-weserv-images` will be documented in this file
 
+## 0.4.1
+
+- implement astrotomic/php-conditional-proxy
+
 ## 0.4.0
 
 - add `toPicture()` method
