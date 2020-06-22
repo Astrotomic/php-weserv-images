@@ -1,5 +1,3 @@
-
-
 # PHP images.weserv.nl
 
 [![Latest Version](http://img.shields.io/packagist/v/astrotomic/php-weserv-images.svg?label=Release&style=for-the-badge)](https://packagist.org/packages/astrotomic/php-weserv-images)
