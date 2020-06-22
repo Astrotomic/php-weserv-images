@@ -35,7 +35,7 @@ echo $url;
 
 ### Testing
 
-``` bash
+```bash
 composer test
 ```
 
