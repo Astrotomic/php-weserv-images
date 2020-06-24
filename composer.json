@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "astrotomic/php-conditional-proxy": "^0.1.0"
+        "astrotomic/php-conditional-proxy": "^0.2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"
