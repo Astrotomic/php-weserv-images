@@ -2,9 +2,14 @@
 
 All notable changes to `php-weserv-images` will be documented in this file
 
+## 1.0.0
+
+- drop `\Astrotomic\Weserv\Images\Url::toImg()`
+- drop `\Astrotomic\Weserv\Images\Url::toPicture()`
+
 ## 0.4.1
 
-- implement astrotomic/php-conditional-proxy
+- implement [astrotomic/php-conditional-proxy](https://github.com/Astrotomic/php-conditional-proxy)
 
 ## 0.4.0
 
