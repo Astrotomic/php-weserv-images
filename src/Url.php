@@ -4,8 +4,6 @@ namespace Astrotomic\Weserv\Images;
 
 use Astrotomic\ConditionalProxy\HasConditionalCalls;
 use Astrotomic\Weserv\Images\Enums\Filter;
-use Astrotomic\Weserv\Images\Enums\Output;
-use Closure;
 
 /**
  * @link https://images.weserv.nl/docs/quick-reference.html
@@ -507,67 +505,10 @@ class Url
         return $this->baseUrl.'?'.$query;
     }
 
-    public function toImg(array $attr = [], array $srcSet = []): string
-    {
-        $attr['src'] = $this->toUrl();
-
-        if (! empty($srcSet)) {
-            $attr['srcset'] = $this->getSrcSet($srcSet);
-        }
-
-        $attributes = $this->getAttributes($attr);
-
-        return <<<HTML
-            <img {$attributes} />
-            HTML;
-    }
-
-    public function toPicture(array $attr = [], array $srcSet = []): string
-    {
-        $attr['src'] = $this->toUrl();
-        if (! empty($srcSet)) {
-            $attr['srcset'] = $this->getSrcSet($srcSet);
-        }
-        $attributes = $this->getAttributes($attr);
-
-        $webpAttr['type'] = 'image/webp';
-        if (! empty($srcSet)) {
-            $webpAttr['srcset'] = (clone $this)->output(Output::WEBP)->getSrcSet($srcSet);
-        }
-        $webpAttributes = $this->getAttributes($webpAttr);
-
-        return <<<HTML
-            <picture>
-                <source {$webpAttributes} />
-                <img {$attributes} />
-            </picture>
-            HTML;
-    }
-
     protected function set(string $key, $value): self
     {
         $this->options[$key] = $value;
 
         return $this;
-    }
-
-    protected function getSrcSet(array $srcSet): string
-    {
-        return implode(', ', array_map(
-            fn (Closure $callback, string $size) => $callback(clone $this).' '.$size,
-            $srcSet, array_keys($srcSet)
-        ));
-    }
-
-    protected function getAttributes(array $attr): string
-    {
-        return implode(
-            ' ',
-            array_map(
-                fn ($k, $v) => sprintf('%s="%s"', $k, $v),
-                array_keys($attr),
-                $attr
-            )
-        );
     }
 }
